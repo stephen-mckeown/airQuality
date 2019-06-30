@@ -25,10 +25,48 @@ li:hover {
 }
 
 .cityInput {
-  width: 226px;
+  width: 230px;
   height: 20px;
   padding: 8px 12px;
   font-size: 16px;
   border-radius: 5px;
   border: 2px solid;
+}
+
+.cityCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 240px;
+  height: 70px;
+  border: 2px solid;
+  padding: 15px 15px;
+  border-radius: 10px;
+}
+
+.cardUpdated{
+  font-weight: 500;
+  font-size: 11px;
+  
+}
+.cardLocationPrimary{
+font-size: 16px;
+font-weight: 700;
+color: purple;
+
+}
+.cardLocationSecondary{
+  font-size: 11px;
+ 
+}
+.cardValues{
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  font-size: 11px;
+}
+
+.cardMeasure{
+  margin: 2px 0;
 }

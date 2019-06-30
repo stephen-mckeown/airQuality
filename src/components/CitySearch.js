@@ -6,14 +6,13 @@ class CitySearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      textInput: '',
       cities: [],
       filteredCites: [],
       selectedCities: [],
       open: false
     };
-    this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleTextInput = this.handleTextInput.bind(this);
   }
 
   componentDidMount() {
@@ -38,19 +37,17 @@ class CitySearch extends React.Component {
       )
   }
 
-
-  handleChange(event) {
+  handleTextInput(event) {
     let cities = this.state.cities
     let search = event.target.value
-
     var regex = new RegExp('^' + search, 'i');
+
     let filterCities = cities.filter((city, index) => {
       return regex.test(city.city);
     })
-    console.log(regex, "regex")
-    console.log(filterCities, "filterCities")
+
     this.setState({
-      value: event.target.value,
+      textInput: event.target.value,
       filteredCites: filterCities,
       open: true
     });
@@ -58,22 +55,29 @@ class CitySearch extends React.Component {
 
   selectCity(id) {
     let {city} = this.state.filteredCites[id]
-    // this.setState ({ open: false })
     let selectedCities = this.state.selectedCities;
+
     return fetchCityData(city)
       .then(data => selectedCities.push(data.results))
-      .then(() => this.setState({ selectedCities,
-                                  open: false,
-                                  value: ''
-                                }))
+      .then(() =>
+        this.setState({ 
+                        selectedCities,
+                        open: false,
+                        textInput: ''
+                      })
+            )
   }
 
 
   render() {
-    console.log(this.state.selectedCities, "selectedCities")
+    if (this.state.selectedCities.length){
+      console.log(this.state.selectedCities)
+      console.log(this.state.selectedCities[0][0], "selectedCities")
+
+    }
     return (
       <div>
-        <input className="cityInput" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter city name..." />
+        <input className="cityInput" type="text" value={this.state.textInput} onChange={this.handleTextInput} placeholder="Enter city name..." />
         {this.state.open &&
           <div className="dropdown">
             <ul>
@@ -83,6 +87,23 @@ class CitySearch extends React.Component {
             </ul>
           </div>
         }
+        {this.state.selectedCities &&
+        <div>
+          {this.state.selectedCities.map((selectedCity, cityIndex) => 
+            <div key={cityIndex} className="cityCard">
+              <div className="cardUpdated">Updated TODO</div> 
+              <div class="cardLocationPrimary">{selectedCity[0].location}</div>
+              <div class="cardLocationSecondary">in {selectedCity[0].city}, United Kingdom</div>
+              <div className="cardValues">
+                <p className="cardMeasure">Values:</p>
+                {selectedCity[0].measurements.map((measure, measureIndex)=> 
+                <p className="cardMeasure">{measure.parameter}: {measure.value},</p>)}
+              </div>
+            </div>
+          )}
+        </div>
+        }
+
       </div>
     );
   }
