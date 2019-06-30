@@ -1,5 +1,6 @@
 import React from 'react';
 import './CitySearch.css'
+import { fetchCities } from './API.js'
 
 class CitySearch extends React.Component {
   constructor(props) {
@@ -15,8 +16,7 @@ class CitySearch extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://api.openaq.org/v1/cities?limit=200&country=GB", { method: 'GET' })
-      .then(res => res.json())
+    return fetchCities()
       .then(
         (resultsObj) => {
           console.log(resultsObj.results)
@@ -61,7 +61,10 @@ class CitySearch extends React.Component {
   // }
 
   selectCity(id) {
-    console.log(id, "selectCity")
+    let {city} = this.state.filteredCites[id]
+    // this.setState ({ open: false })
+    
+    console.log(city, "selectCity")
   }
 
 
