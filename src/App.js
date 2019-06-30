@@ -21,6 +21,7 @@ export class CitySearch extends React.Component {
     this.state = {
             value: '',
             cities: [],
+            filteredCites: []
           };
     this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,9 +51,20 @@ export class CitySearch extends React.Component {
   }
 
 
-
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    let cities = this.state.cities
+    let search = event.target.value
+
+    var regex = new RegExp('^' + search, 'i');
+    let filterCities = cities.filter((city, index) => {
+      return regex.test(city.city);
+    })
+    console.log(regex, "regex")
+    console.log(filterCities, "filterCities")
+    this.setState({
+      value: event.target.value,
+      filteredCites: filterCities,
+    });
   }
 
   // handleSubmit(event) {
