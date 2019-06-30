@@ -18,11 +18,38 @@ export default App;
 export class CitySearch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
-
+    this.state = {
+            value: '',
+            cities: [],
+          };
     this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidMount() {
+    fetch("https://api.openaq.org/v1/cities?limit=200&country=GB", { method: 'GET' })
+      .then(res => res.json())
+      .then(
+        (resultsObj) => {
+          console.log(resultsObj.results)
+          this.setState({
+            isLoaded: true,
+            cities: resultsObj.results
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
+
 
   handleChange(event) {
     this.setState({ value: event.target.value });
