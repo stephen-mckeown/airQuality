@@ -1,6 +1,6 @@
 import React from 'react';
 import './CitySearch.css'
-import { fetchCities } from './API.js'
+import { fetchCities, fetchCityData } from './API.js'
 
 class CitySearch extends React.Component {
   constructor(props) {
@@ -63,8 +63,9 @@ class CitySearch extends React.Component {
   selectCity(id) {
     let {city} = this.state.filteredCites[id]
     // this.setState ({ open: false })
-    
     console.log(city, "selectCity")
+    return fetchCityData(city)
+      .then(results => console.log(results))
   }
 
 
