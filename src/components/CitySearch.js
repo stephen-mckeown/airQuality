@@ -9,6 +9,7 @@ class CitySearch extends React.Component {
       value: '',
       cities: [],
       filteredCites: [],
+      selectedCities: [],
       open: false
     };
     this.handleChange = this.handleChange.bind(this);
@@ -55,21 +56,21 @@ class CitySearch extends React.Component {
     });
   }
 
-  // handleSubmit(event) {
-  //   alert('A name was submitted: ' + this.state.value);
-  //   event.preventDefault();
-  // }
-
   selectCity(id) {
     let {city} = this.state.filteredCites[id]
     // this.setState ({ open: false })
-    console.log(city, "selectCity")
+    let selectedCities = this.state.selectedCities;
     return fetchCityData(city)
-      .then(results => console.log(results))
+      .then(data => selectedCities.push(data.results))
+      .then(() => this.setState({ selectedCities,
+                                  open: false,
+                                  value: ''
+                                }))
   }
 
 
   render() {
+    console.log(this.state.selectedCities, "selectedCities")
     return (
       <div>
         <input className="cityInput" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter city name..." />
@@ -81,7 +82,6 @@ class CitySearch extends React.Component {
               })}
             </ul>
           </div>
-
         }
       </div>
     );
