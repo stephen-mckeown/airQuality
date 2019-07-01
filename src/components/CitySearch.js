@@ -76,19 +76,19 @@ class CitySearch extends React.Component {
 
     }
     return (
-      <div>
+      <div className="citySearchContainer">
         <input className="cityInput" type="text" value={this.state.textInput} onChange={this.handleTextInput} placeholder="Enter city name..." />
         {this.state.open &&
-          <div className="dropdown">
-            <ul>
-              {this.state.filteredCites.map((city, index) => {
-                return <li key={index} onClick={() => this.selectCity(index)}>{city.city}</li>
-              })}
-            </ul>
-          </div>
+        <div className="dropdown">
+          <ul>
+            {this.state.filteredCites.map((city, index) => {
+              return <li key={index} onClick={() => this.selectCity(index)}>{city.city}</li>
+            })}
+          </ul>
+        </div>
         }
         {this.state.selectedCities &&
-        <div>
+        <div className="cityCardContainer">
           {this.state.selectedCities.map((selectedCity, cityIndex) => 
             <div key={cityIndex} className="cityCard">
               <div className="cardUpdated">Updated TODO</div> 

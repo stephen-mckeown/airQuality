@@ -24,6 +24,13 @@ li:hover {
   cursor: pointer;
 }
 
+.citySearchContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .cityInput {
   width: 230px;
   height: 20px;
@@ -33,12 +40,21 @@ li:hover {
   border: 2px solid;
 }
 
+.cityCardContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 150px;
+  width: 600px;
+
+}
+
 .cityCard {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 240px;
+  width: 250px;
   height: 70px;
   border: 2px solid;
   padding: 15px 15px;
