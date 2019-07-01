@@ -1,5 +1,6 @@
 import React from 'react';
 import './CitySearch.css'
+import CityCard from './CityCard.js'
 import { fetchCities, fetchCityData } from './API.js'
 
 class CitySearch extends React.Component {
@@ -54,59 +55,46 @@ class CitySearch extends React.Component {
   }
 
   selectCity(id) {
-    let {city} = this.state.filteredCites[id]
+    let { city } = this.state.filteredCites[id]
     let selectedCities = this.state.selectedCities;
 
     return fetchCityData(city)
       .then(data => selectedCities.push(data.results))
       .then(() =>
-        this.setState({ 
-                        selectedCities,
-                        open: false,
-                        textInput: ''
-                      })
-            )
+        this.setState({
+          selectedCities,
+          open: false,
+          textInput: ''
+        })
+      )
   }
 
 
   render() {
-    if (this.state.selectedCities.length){
-      console.log(this.state.selectedCities)
-      console.log(this.state.selectedCities[0][0], "selectedCities")
-
-    }
     return (
       <div className="citySearchContainer">
         <input className="cityInput" type="text" value={this.state.textInput} onChange={this.handleTextInput} placeholder="Enter city name..." />
         {this.state.open &&
-        <div className="dropdown">
-          <ul>
-            {this.state.filteredCites.map((city, index) => {
-              return <li key={index} onClick={() => this.selectCity(index)}>{city.city}</li>
-            })}
-          </ul>
-        </div>
+          <div className="dropdown">
+            <ul>
+              {this.state.filteredCites.map((city, index) => {
+                return <li key={index} onClick={() => this.selectCity(index)}>{city.city}</li>
+              })}
+            </ul>
+          </div>
         }
         {this.state.selectedCities &&
-        <div className="cityCardContainer">
-          {this.state.selectedCities.map((selectedCity, cityIndex) => 
-            <div key={cityIndex} className="cityCard">
-              <div className="cardUpdated">Updated TODO</div> 
-              <div class="cardLocationPrimary">{selectedCity[0].location}</div>
-              <div class="cardLocationSecondary">in {selectedCity[0].city}, United Kingdom</div>
-              <div className="cardValues">
-                <p className="cardMeasure">Values:</p>
-                {selectedCity[0].measurements.map((measure, measureIndex)=> 
-                <p className="cardMeasure">{measure.parameter}: {measure.value},</p>)}
-              </div>
-            </div>
-          )}
-        </div>
+          <div className="cityCardContainer">
+            {this.state.selectedCities.map((selectedCity, cityIndex) =>
+              <CityCard key={cityIndex} index={cityIndex} city={selectedCity} />
+            )}
+          </div>
         }
-
       </div>
     );
   }
 }
 
 export default CitySearch;
+
+
