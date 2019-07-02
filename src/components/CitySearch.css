@@ -1,7 +1,7 @@
 
 .dropdown {
   width: 250px;
-  z-index: 2;
+  height:300px;
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -29,6 +29,7 @@ li:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .cityInput {

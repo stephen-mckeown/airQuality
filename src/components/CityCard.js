@@ -12,6 +12,7 @@ class CityCard extends React.Component {
 
     return (
       <div className="cityCard">
+        <div className="cityCardClose">X</div>
         <div className="cardUpdated">Updated TODO</div>
         <div className="cardLocationPrimary">{selectedCity[0].location}</div>
         <div className="cardLocationSecondary">in {selectedCity[0].city}, United Kingdom</div>

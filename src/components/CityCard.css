@@ -3,8 +3,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 150px;
+  /* margin: 150px; */
   width: 600px;
+      position: absolute;
+    /* align-items: center; */
+    top: 200px;
 
 }
 
@@ -13,11 +16,19 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 250px;
+  min-width: 255px;
   height: 70px;
   border: 2px solid;
   padding: 15px 15px;
   border-radius: 10px;
+  position: relative;
+}
+
+.cityCardClose{
+  position: absolute;
+  z-index: 1;
+  right: 4%;
+  top: 5%;
 }
 
 .cardUpdated{
