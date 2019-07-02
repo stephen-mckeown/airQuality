@@ -69,6 +69,15 @@ class CitySearch extends React.Component {
       )
   }
 
+  removeCity = (index) => {
+    console.log(index, "index")
+    console.log(this.state.selectedCities, "selectedCities")
+    let selectedCities = this.state.selectedCities;
+    let editedCities = selectedCities.splice(index, 1)
+    console.log(editedCities, "editedCities")
+    this.setState({ selectedCities: editedCities})
+  }
+
 
   render() {
     return (
@@ -86,7 +95,7 @@ class CitySearch extends React.Component {
         {this.state.selectedCities &&
           <div className="cityCardContainer">
             {this.state.selectedCities.map((selectedCity, cityIndex) =>
-              <CityCard key={cityIndex} index={cityIndex} city={selectedCity} />
+              <CityCard  index={cityIndex} city={selectedCity} delete={this.removeCity} />
             )}
           </div>
         }
