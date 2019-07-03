@@ -9,9 +9,10 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: 200px;
+  max-height: 150px;
   overflow: scroll;
-  background-color: white
+  background-color: white;
+  
 }
 li {
   display: flex;

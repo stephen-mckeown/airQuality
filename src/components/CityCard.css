@@ -22,6 +22,7 @@
   padding: 15px 15px;
   border-radius: 10px;
   position: relative;
+  background-color: white;
 }
 
 .cityCardClose{
@@ -39,7 +40,7 @@
 .cardLocationPrimary{
 font-size: 16px;
 font-weight: 700;
-color: purple;
+color: #7835b1;
 
 }
 .cardLocationSecondary{
