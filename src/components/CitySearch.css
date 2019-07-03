@@ -12,7 +12,7 @@ ul {
   max-height: 150px;
   overflow: scroll;
   background-color: white;
-  
+  border-radius: 0 0 10px 10px;
 }
 li {
   display: flex;
@@ -40,4 +40,23 @@ li:hover {
   font-size: 16px;
   border-radius: 5px;
   border: 2px solid;
+}
+
+@media (max-width: 1024px) {
+.cityInput {
+  width: 320px;
+  height: 30px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid;
+}
+}
+
+@media (max-width: 1024px) {
+.dropdown {
+  width: 345px;
+  height:300px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
 }

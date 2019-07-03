@@ -85,7 +85,7 @@ class CitySearch extends React.Component {
 
 
   render() {
-  
+
     return (
       <div className="citySearchContainer">
         <input className="cityInput" type="text" value={this.state.textInput} onChange={this.handleTextInput} placeholder="Enter city name..." />

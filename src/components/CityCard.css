@@ -3,11 +3,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* margin: 150px; */
   width: 600px;
-      position: absolute;
-    /* align-items: center; */
-    top: 200px;
+  position: absolute;  
+  top: 200px;
 
 }
 
@@ -56,4 +54,15 @@ color: #7835b1;
 
 .cardMeasure{
   margin: 2px 0;
+}
+
+@media (max-width: 1024px) {
+  .cityCardContainer {
+   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 350px;
+  position: absolute;  
+  top: 200px;
+}
 }
