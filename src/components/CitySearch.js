@@ -59,7 +59,9 @@ class CitySearch extends React.Component {
     let selectedCities = this.state.selectedCities;
 
     return fetchCityData(city)
-      .then(data => selectedCities.push(data.results))
+      .then(data => {
+        selectedCities.push(data.results[0])
+      })
       .then(() =>
         this.setState({
           selectedCities,
@@ -70,16 +72,20 @@ class CitySearch extends React.Component {
   }
 
   removeCity = (index) => {
-    console.log(index, "index")
-    console.log(this.state.selectedCities, "selectedCities")
     let selectedCities = this.state.selectedCities;
-    let editedCities = selectedCities.splice(index, 1)
-    console.log(editedCities, "editedCities")
-    this.setState({ selectedCities: editedCities})
+    if(selectedCities.length < 2){
+      selectedCities = []
+    } else {
+
+      selectedCities.splice(index, 1)
+    }
+    //console.log(editedCities, "editedCities")
+    this.setState({ selectedCities: selectedCities})
   }
 
 
   render() {
+  
     return (
       <div className="citySearchContainer">
         <input className="cityInput" type="text" value={this.state.textInput} onChange={this.handleTextInput} placeholder="Enter city name..." />

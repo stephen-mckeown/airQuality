@@ -3,18 +3,20 @@ import './CityCard.css'
 
 class CityCard extends React.Component {
   render() {
-    let selectedCity = this.props.city
-    let cityKey = this.props.index
+    // console.log(this.props, "this.props")
+    let selectedCity = this.props.city;
+    let cityKey = this.props.index;
+    
 
     return (
       <div className="cityCard">
         <div onClick={() => this.props.delete(cityKey)} className="cityCardClose">X</div>
         <div className="cardUpdated">Updated TODO</div>
-        <div className="cardLocationPrimary">{selectedCity[0].location}</div>
-        <div className="cardLocationSecondary">in {selectedCity[0].city}, United Kingdom</div>
+        <div className="cardLocationPrimary">{selectedCity.location}</div>
+        <div className="cardLocationSecondary">in {selectedCity.city}, United Kingdom</div>
         <div className="cardValues">
           <p className="cardMeasure">Values:</p>
-          {selectedCity[0].measurements.map((measure, measureIndex) =>
+          {selectedCity.measurements.map((measure, measureIndex) =>
             <p className="cardMeasure">{measure.parameter}: {measure.value},</p>)}
         </div>
       </div>
