@@ -12,7 +12,6 @@ You can find all about this API here: https://docs.openaq.org/
 ## Prerequisites
 
 ```
-    Node.js v8.6.0 or higher
     npm v5.6.0
     git version 2.14.3
 ```
