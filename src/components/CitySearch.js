@@ -88,7 +88,8 @@ class CitySearch extends React.Component {
 
     return (
       <div className="citySearchContainer">
-        <input className="cityInput" type="text" value={this.state.textInput} onChange={this.handleTextInput} placeholder="Enter city name..." />
+    <input id="icon" className="cityInput" type="text" value={this.state.textInput} onChange={this.handleTextInput} placeholder="Enter city name..." />
+
         {this.state.open &&
           <div className="dropdown">
             <ul>

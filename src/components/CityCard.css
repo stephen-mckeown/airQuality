@@ -64,5 +64,6 @@ color: #7835b1;
   width: 350px;
   position: absolute;  
   top: 200px;
+  min-height: 230px;
 }
 }
