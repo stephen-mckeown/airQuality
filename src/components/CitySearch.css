@@ -34,22 +34,41 @@ li:hover {
 }
 
 .cityInput {
-  width: 230px;
+  width: 210px;
   height: 20px;
   padding: 8px 12px;
   font-size: 16px;
   border-radius: 5px;
   border: 2px solid;
+  padding-left: 30px;
 }
+
+
+#icon{
+  background-image: url(icons/magnifying-glass.png);
+  background-size: 20px;
+  background-repeat: no-repeat; 
+  background-position: 4px 7px;
+  }
+
+  @media (max-width: 1024px) {
+    #icon{
+      background-image: url(icons/magnifying-glass.png);
+      background-size: 25px;
+      background-repeat: no-repeat; 
+      background-position: 4px 10px;
+      }
+    }
 
 @media (max-width: 1024px) {
 .cityInput {
-  width: 320px;
+  width: 304px;
   height: 30px;
   padding: 8px 12px;
   font-size: 16px;
   border-radius: 5px;
   border: 2px solid;
+  padding-left: 30px;
 }
 }
 
