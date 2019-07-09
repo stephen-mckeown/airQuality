@@ -39,6 +39,4 @@ Once the build process has finished the app will run locally on your machine.
 ## Still to do...
 There is a few unfinshed items within the app:
 * Mobile responsive could be better with additional breakpoints and fonts units changed.
-* There is a Promise race condition that is causing the app to crash when developer tools is open at times.
-* There is a warning given as the index on the map is passed to be the key on 2 components and this is not a react best practice.
-* No error handling is being completed and therefore relaying on the API to be rebust.
+* No error handling is being completed and therefore relaying on the API to be robust.
