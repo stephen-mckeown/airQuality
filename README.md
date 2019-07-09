@@ -6,7 +6,12 @@ Build using Open AQ Air Quality API.
 
 ## Getting Started
 
-Build using Open AQ Air Quality API.
+You can see this app running here:
+```
+https://air-quality-uk.herokuapp.com/
+```
+
+Built using Open AQ Air Quality API.
 You can find all about this API here: https://docs.openaq.org/
 
 ## Prerequisites
