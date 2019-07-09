@@ -20,7 +20,6 @@ class CitySearch extends React.Component {
     return fetchCities()
       .then(
         (resultsObj) => {
-          console.log(resultsObj.results)
           this.setState({
             isLoaded: true,
             cities: resultsObj.results
@@ -78,12 +77,10 @@ class CitySearch extends React.Component {
     this.setState({ selectedCities: selectedCities })
   }
 
-
   render() {
     return (
       <div className="citySearchContainer">
-    <input id="icon" className="cityInput" type="text" value={this.state.textInput} onChange={this.handleTextInput} placeholder="Enter city name..." />
-
+        <input id="icon" className="cityInput" type="text" value={this.state.textInput} onChange={this.handleTextInput} placeholder="Enter city name..." />
         {this.state.open &&
           <div className="dropdown">
             <ul>
