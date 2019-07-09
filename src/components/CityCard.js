@@ -22,7 +22,6 @@ class CityCard extends React.Component {
     }
   }
 
-
   render() {
     let selectedCity = this.props.city;
     let cityKey = this.props.index;
@@ -40,7 +39,7 @@ class CityCard extends React.Component {
         <div className="cardValues">
           <p className="cardMeasure">Values:</p>
           {selectedCity.measurements.map((measure, measureIndex) =>
-            <p className="cardMeasure">{measure.parameter}: {measure.value},</p>)}
+            <p key={measureIndex} className="cardMeasure">{measure.parameter}: {measure.value},</p>)}
         </div>
       </div>
     )
