@@ -42,11 +42,9 @@ class CitySearch extends React.Component {
     let cities = this.state.cities
     let search = event.target.value
     var regex = new RegExp('^' + search, 'i');
-
     let filterCities = cities.filter((city, index) => {
       return regex.test(city.city);
     })
-
     this.setState({
       textInput: event.target.value,
       filteredCites: filterCities,
@@ -57,7 +55,6 @@ class CitySearch extends React.Component {
   selectCity(id) {
     let { city } = this.state.filteredCites[id]
     let selectedCities = this.state.selectedCities;
-
     return fetchCityData(city)
       .then(data => {
         selectedCities.push(data.results[0])
@@ -73,19 +70,16 @@ class CitySearch extends React.Component {
 
   removeCity = (index) => {
     let selectedCities = this.state.selectedCities;
-    if(selectedCities.length < 2){
+    if (selectedCities.length < 2) {
       selectedCities = []
     } else {
-
       selectedCities.splice(index, 1)
     }
-    //console.log(editedCities, "editedCities")
-    this.setState({ selectedCities: selectedCities})
+    this.setState({ selectedCities: selectedCities })
   }
 
 
   render() {
-
     return (
       <div className="citySearchContainer">
         <input className="cityInput" type="text" value={this.state.textInput} onChange={this.handleTextInput} placeholder="Enter city name..." />
@@ -101,7 +95,7 @@ class CitySearch extends React.Component {
         {this.state.selectedCities &&
           <div className="cityCardContainer">
             {this.state.selectedCities.map((selectedCity, cityIndex) =>
-              <CityCard  index={cityIndex} city={selectedCity} delete={this.removeCity} />
+              <CityCard key={cityIndex} index={cityIndex} city={selectedCity} delete={this.removeCity} />
             )}
           </div>
         }
